@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model MoviewDB.Models.Common.DetailTvsMovieModel
+<div class="row">
+
+    @if (Model.detailMovieTvModel != null)
+    {
+        string genre = "";
+        var posterImage = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/" + Model.detailMovieTvModel.poster_path;
+        var logoImage = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + Model.detailMovieTvModel.backdrop_path;
+
+        <div class="col-md-12">
+            <img class="img-responsive poster" src="@posterImage" />
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@logoImage" class="img-responsive afis" />
+                    </div>
+                    <div class="col-md-8">
+                        <label class="contentName">@Model.detailMovieTvModel.title</label>
+                        <div class="col-md-12">
+                            <span class="category">
+
+                                @if (Model.detailMovieTvModel.genre != null)
+                                {
+                                    foreach (var item in Model.detailMovieTvModel.genre)
+                                    {
+                                        genre += item.name + ",";
+                                    }
+                                }
+                                @genre.ToString();
+                            </span>
+                            <span class="score">@Model.detailMovieTvModel.popularity</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-content">
+                @Html.Raw(@Model.detailMovieTvModel.overview)
+            </div>
+        </div>
+    }
+
+<div class="row">
+    <div class="headerTitle">Full Cast & Crew</div>
+    @if (Model.detailMovieTvCreditModel.crew != null)
+    {
+        foreach (var item in Model.detailMovieTvCreditModel.crew)
+        {
+            var profilImage = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + item.profile_path;
+            if (item.profile_path != null)
+            {
+                <div class="col-md-3 col-xs-3">
+                    <a href="#"><img src="@profilImage" alt="@item.name" class="img-responsive" /></a>
+                    <label class="player text-center"> @item.name </label>
+                    <label class="playerposition text-center"> @item.department </label>
+                </div>
+            }
+
+        }
+    }
+
+
+    @if (Model.detailMovieTvCreditModel.cast != null)
+    {
+        foreach (var item in Model.detailMovieTvCreditModel.cast)
+        {
+            var profilImage = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + item.profile_path;
+            if (item.profile_path != null)
+            {
+                <div class="col-md-3 col-xs-3">
+                    <a href="#"><img src="@profilImage" alt="@item.name" class="img-responsive" /></a>
+                    <label class="player text-center"> @item.name </label>
+                    <label class="playerposition text-center">&nbsp; </label>
+                </div>
+            }
+
+        }
+    }
+
+</div>
+
+
+
+</div>
+
+
+
+
+

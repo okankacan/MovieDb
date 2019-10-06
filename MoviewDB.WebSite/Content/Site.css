@@ -1,0 +1,130 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+span.glyphicon.glyphicon-user {
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 2rem;
+    float: right;
+}
+
+.navbar-toggle {
+    float: none !important;
+}
+
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
+    display: none !important;
+    content: " ";
+}
+
+.nav.navbar-collapse {
+    float: right;
+    top: 0;
+}
+
+    .nav.navbar-collapse:before {
+        display: block !important;
+        margin-top: 1rem;
+    }
+
+.headerTitle {
+    font-size: 2rem;
+    margin: 10px 10px 5px;
+}
+
+.ContentTitle {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+label.name {
+    width: 100%;
+}
+
+    label.name.text-center a {
+        color: #808080;
+        text-align: center;
+    }
+
+        label.name.text-center a:hover {
+            color: #000000;
+        }
+
+img.img-responsive {
+    border-radius: 5px;
+}
+
+ 
+
+    img.img-responsive.poster {
+        width: 100%;
+        max-height: 300px;
+    }
+
+label.contentName {
+    position: absolute;
+    margin-top: -40px;
+    font-size: 2rem;
+    color: white;
+}
+img.img-responsive.afis {
+    position: absolute;
+    margin-top: -120px;
+    max-height: 170px;
+    margin-bottom: 150px;
+}
+.col-md-12.body-content {
+    margin: 50px 10px 10px 10px;
+}
+@media (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+
+    span.glyphicon.glyphicon-user {
+        margin-top: -3rem;
+    }
+
+    .col-md-3.col-xs-3 {
+        min-height: 230px;
+    }
+
+    img.img-responsive.poster {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    label.contentName {
+        right: 0
+    }
+    .headerTitle {
+        
+        margin: 10px 20px 5px;
+    }
+}

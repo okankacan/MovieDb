@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Film";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model  MoviewDB.Models.Common.RatingTopMovieModel
+
+
+<div class="row">
+
+    @if (Model.topRatedMovie != null)
+    {
+        <div class="headerTitle">TOP Rating Movies</div>
+
+        <div class="col-md-12">
+
+            @foreach (var item in Model.topRatedMovie.results.Take(3))
+            {
+                var imageUrl = "https://image.tmdb.org/t/p/w500_and_h282_face/" + item.backdrop_path;
+                <div class="col-md-4 col-xs-4">
+
+                    <a href="/Home/Detail/movie/@item.id.ToString()"><img src="@imageUrl" alt="@item.title" class="img-responsive" /></a>
+                    <label class="name text-center"> <a href="/Home/Detail/movie/@item.id.ToString()">@item.title</a></label>
+                </div>
+            }
+
+        </div>
+    }
+    @if (Model.topRatedMovie != null)
+    {
+        <div class="ContentTitle">Now Playing</div>
+        <div class="col-md-12">
+
+            @foreach (var item in Model.topRatedMovie.results.Take(4))
+            {
+                var nowPlayingImage = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + item.backdrop_path;
+                <div class="col-md-3 col-xs-3">
+                    <a href="/Home/Detail/movie/@item.id.ToString()"><img src="@nowPlayingImage" alt="@item.title" class="img-responsive" /></a>
+                    <label class="name text-center"> <a href="/Home/Detail/movie/@item.id.ToString()">@item.title</a></label>
+                </div>
+            }
+
+
+        </div>
+    }
+    @if (Model.popularMovie != null)
+    {
+        <div class="ContentTitle">Popular</div>
+        <div class="col-md-12">
+
+            @foreach (var item in Model.popularMovie.results.Take(15))
+            {
+                var popuplarImage = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + item.backdrop_path;
+                <div class="col-md-3 col-xs-3">
+                    <a href="/Home/Detail/movie/@item.id.ToString()"><img src="@popuplarImage" alt="@item.title" class="img-responsive" /></a>
+                    <label class="name text-center"> <a href="/Home/Detail/movie/@item.id.ToString()">@item.title</a></label>
+                </div>
+            }
+
+        </div>
+    }
+</div>
+

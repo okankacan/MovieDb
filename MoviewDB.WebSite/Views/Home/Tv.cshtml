@@ -1,0 +1,42 @@
+﻿
+
+@{
+    ViewBag.Title = "Diziler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model  MoviewDB.Models.Common.RatingTopTvModel
+<div class="row">
+    @if (Model.tvTopRatedMovie.results != null)
+    {
+        <div class="headerTitle">TV</div>
+        <div class="col-md-12">
+            @foreach (var item in Model.tvTopRatedMovie.results.Take(4))
+            {
+                var imageUrl = "https://image.tmdb.org/t/p/w500_and_h282_face/" + item.backdrop_path;
+                <div class="col-md-3 col-xs-3">
+                    <a href="/Home/Detail/tv/@item.id.ToString()"><img src="@imageUrl" alt="@item.name" class="img-responsive" /></a>
+                    <label class="name text-center"> <a href="/Home/Detail/tv/@item.id.ToString()">@item.name</a></label>
+                </div>
+            }
+        </div>
+    }
+    @if (Model.tvTopRatedMovie.results != null)
+    {
+        <div class="ContentTitle">Popular</div>
+        <div class="col-md-12">
+
+            @foreach (var item in Model.tvTopRatedMovie.results.Take(20))
+            {
+                var imageTvUrl = "https://image.tmdb.org/t/p/w500_and_h282_face/" + item.backdrop_path;
+
+                <div class="col-md-3 col-xs-12">
+                    <a href="/Home/Detail/tv/@item.id.ToString()"><img src="@imageTvUrl" alt="@item.name" class="img-responsive" /></a>
+                    <label class="name text-center"> <a href="/Home/Detail/tv/@item.id.ToString()">@item.name</a></label>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+
+
